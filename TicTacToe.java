@@ -1,5 +1,3 @@
-package assignment3;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -111,21 +109,28 @@ public class TicTacToe implements ActionListener {
     private boolean checkForWinner(int row, int col) {
         // check row
         if (board[row][0] == currentPlayer && board[row][1] == currentPlayer && board[row][2] == currentPlayer) {
+            buttons[row].clone();
+            buttons[col].clone();
             return true;
         }
 
         // check column
         if (board[0][col] == currentPlayer && board[1][col] == currentPlayer && board[2][col] == currentPlayer) {
+            buttons[row].clone();
+            buttons[col].clone();
             return true;
         }
 
         // check diagonal
         if (row == col && board[0][0] == currentPlayer && board[1][1] == currentPlayer && board[2][2] == currentPlayer) {
+            buttons[row].clone();
+            buttons[col].clone();
             return true;
         }
 
         // check anti-diagonal
         return row + col == 2 && board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] == currentPlayer;
+        
     }
 
     public static void main(String[] args) {
